@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Media Elements</title>
+  </head>
+  
+
+  <body>
+    <header>
+      <h1>Media Elements</h1>
+      <hr>
+      <br>
+      <h2> Audio Attributes</h2>
+      <p>HTML Audio Element</p>
+      <audio controls>
+        <source src="something-about-you-marilyn-ford-135781.mp3" type="audio/ogg">
+        
+      
+      </audio>
+      <p>HTML Audio Control Autoplay loop</p>
+      
+      <audio controls autoplay loop>  
+        <source src="5 Sec Intro Music No Copyright.mp3"></audio> 
+        <p>HTML Audio Preload</p>
+        <audio controls preload="none">
+          <source src="5 Sec Intro Music No Copyright.mp3" type="audio/ogg">
+          
+        </audio>
+        <p>HTML Src</p>
+        <audio src="5 Sec Intro Music No Copyright.mp3" controls>
+          
+          </audio>
+          <hr>
+          <h2>Video attributes</h2>
+          <br>
+          <p>HTML Video Element</p><video width="320" height="240" controls>
+            <source src="Reddy.mp4" type="video/mp4">
+            
+          </video>
+          <p>HTML Video Autoplay</p>
+          <video controls autoplay>
+            <source src="Reddy.mp44" type="video/mp4">
+            <source src="Reddy.mp4" type="video/ogg">
+            
+          </video>
+         
+            
+          </video>
+          <p>HTML Video loop</p>
+          <video controls loop>
+            
+            <source src="Reddy.mp4" type="video/mp4">
+
+          </video>
+          <p>HTML Video Poster</p>
+          <video controls poster="/images/w3html5.gif">
+            <source src="Reddy.mp4" type="video/mp4">
+            
+          </video>
+          <p>HTML Video src</p>
+          <video src="Reddy.mp4" controls>
+            
+            Your browser does not support the video tag.
+          </video>
+          <hr>
+          <h2> Source</h2>
+          <p>Audio Source tag</p>
+          <audio controls>
+            <source src="5 Sec Intro Music No Copyright.mp3" type="audio/ogg">
+            
+          </audio>
+          <hr>
+          <br>
+          <h2>Embedded tag</h2>
+          <embed src="Reddy.mp4"
+       
+       width="250"
+       height="200">
+       <hr>
+       <br>
+       <h2>Track Tag</h2>
+       <video width="320" height="240" controls>
+        <source src="./pp.mp4" type="video/mp4">
+        <source src="./pp.mp4" type="video/ogg">
+        <track src="./sample.vtt" kind="subtitles" srclang="en" label="English">
+        <track src="./sample.vtt" kind="subtitles" srclang="en" label="English">
+      </video>
