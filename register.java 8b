@@ -1,0 +1,91 @@
+package wdd8a;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class register
+ */
+@WebServlet("/register")
+public class register extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{ 
+
+		PrintWriter pw =res.getWriter();
+		res.setContentType("text/html");
+		String studentname= req.getParameter("studentname");
+		String fathername = req.getParameter("fathername");
+		String mothername=req.getParameter("mothername");
+		String gender=req.getParameter("gender");
+		String date=req.getParameter("date");
+		String email=req.getParameter("email");
+		String level=req.getParameter("level");
+		String mobile=req.getParameter("mobile");
+		boolean status=false;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/wdd7b?useSSL=false","root","Hanuman@99");
+			
+			java.sql.PreparedStatement ps = connection.prepareStatement("INSERT INTO `wdd7b` .`wdd8b` (`Student name`,`Father name`,`Mother name`,`Gender`,`Date of Birth`,`Email`,`Level`,`Mobile`) VALUES (?,?,?,?,?,?,?,?);");
+			ps.setString(1, studentname);
+			ps.setString(2, fathername);
+			ps.setString(3, mothername);
+			ps.setString(4, gender);
+			ps.setString(5, date);
+			ps.setString(6, email);
+			ps.setString(7, level);
+			ps.setString(8, mobile);
+			
+//			System.out.println(ps);
+//			ResultSet rs=ps.executeQuery();
+//			status=rs.next();
+			int row = ps.executeUpdate();
+	        if (row > 0) {
+	        //	res.sendRedirect("validation.jsp"); 
+	        	req.setAttribute("studentname",studentname);
+	        	req.setAttribute("fathername",fathername);
+	        	req.setAttribute("mothername",mothername);
+	        	req.setAttribute("gender",gender);
+	        	req.setAttribute("date",date);
+	        	req.setAttribute("email",email);
+	        	req.setAttribute("level",level);
+	        	req.setAttribute("mobile",mobile);
+	        	req.getRequestDispatcher("validation.jsp").forward(req, res); 
+	        }
+
+	        else {
+	        	pw.print("<p style=color:red>Username and Password invalid</p>");
+	        }
+	        connection.close();
+		}
+		catch(SQLException | ClassNotFoundException e) {
+			System.out.println(e);
+		}
+		
+//		if(status) {
+//			pw.print("<p style=color:green>welcome "+studentname+"</p>");
+//		}
+//		else {
+//			pw.print("<p style=color:red>Username and Password invalid</p>");
+//		}
+		
+		
+		}
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{ 
+	doGet(req,res);
+	}
+}
