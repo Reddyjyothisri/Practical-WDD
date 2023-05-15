@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Reads the XML data using JavaScript(jquery)</title>
+
+	<!-- CSS -->
+	<style>
+		/* Center align the button */
+		body {
+		background-color: #99b3cd;
+		font-family: Arial, sans-serif;
+		color: #333;
+	}
+
+	h1 {
+		text-align: center;
+		margin-top: 50px;
+	}
+
+	button {
+		display: block;
+		margin: 5%;
+		padding: 12px 24px;
+		border: none;
+		border-radius: 4px;
+		background-color: #007bff;
+		color: #fff;
+		font-size: 16px;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+	}
+
+	button:hover {
+		background-color: #0062cc;
+	}
+
+	table {
+		border-collapse: collapse;
+		width: 90%;
+		margin: 50px auto 0;
+		background-color: #fff;
+		box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	}
+
+	th, td {
+		padding: 12px;
+		text-align: left;
+		border-bottom: 1px solid #ddd;
+	}
+
+	th {
+		background-color: #f2f2f2;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	tr:hover {background-color: #f5f5f5;}
+
+	</style>
+
+	<!--JavaScript-->
+	<script>
+		function loadXMLDoc() {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function () {
+
+				// Request finished and response
+				// is ready and Status is "OK"
+				if (this.readyState == 4 && this.status == 200) {
+					empDetails(this);
+				}
+			};
+
+			// Books.xml is the external xml file
+			xmlhttp.open("GET", "Books.xml", true);
+			xmlhttp.send();
+		}
+
+		function empDetails(xml) {
+			var i;
+			var xmlDoc = xml.responseXML;
+			var table =
+				`<tr><th>Firstname</th><th>Lastname</th>
+					<th>Title</th><th>Author</th>
+					<th>Building</th><th>Room</th>
+				</tr>`;
+			var x = xmlDoc.getElementsByTagName("Book");
+
+			// Start to fetch the data by using TagName
+			for (i = 0; i < x.length; i++) {
+				table += "<tr><td>" +
+					x[i].getElementsByTagName("firstname")[0]
+					.childNodes[0].nodeValue + "</td><td>" +
+					x[i].getElementsByTagName("lastname")[0]
+					.childNodes[0].nodeValue + "</td><td>" +
+					x[i].getElementsByTagName("title")[0]
+					.childNodes[0].nodeValue + "</td><td>" +
+					x[i].getElementsByTagName("Author")[0]
+					.childNodes[0].nodeValue + "</td><td>" +
+					x[i].getElementsByTagName("building")[0]
+					.childNodes[0].nodeValue + "</td><td>" +
+					x[i].getElementsByTagName("room")[0]
+					.childNodes[0].nodeValue + "</td></tr>";
+			}
+
+			// Print the xml data in table form
+			document.getElementById("id").innerHTML = table;
+		}
+	</script>
+</head>
+
+<body>
+	<center>
+		<button type="button" class="button"
+			onclick="loadXMLDoc()">
+			Get Book Details
+		</button>
+	</center>
+	
+	<br><br>
+	<table id="id"></table>
+</body>
+
+</html>
