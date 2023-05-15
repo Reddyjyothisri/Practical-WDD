@@ -1,0 +1,41 @@
+
+.........32<!DOCTYPE html>
+<html>
+<head><center>
+	<title>Online Test - Results</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body style="background-color: lightpink
+; font-family: Arial, sans-serif;">
+
+	<header style="background-color: sea blue #333; color: #fff; padding: 20px;">
+		<h1 style="margin: 0;">Online Test - Results</h1>
+	</header>
+
+	<main style="padding: 20px;">
+		<?php
+			$score = 0;
+
+			if ($_POST["q1"] == "a") {
+				$score++;
+			}
+
+			if ($_POST["q2"] == "b") {
+				$score++;
+			}
+
+			if ($_POST["q3"] == "b") {
+				$score++;
+			}
+
+			echo "<p>You scored " . $score . " out of 3.</p>";
+		?>
+	</main>
+
+	<footer style="background-color: #333; color: #fff; padding: 10px; text-align: center;">
+		<p>&copy; Chemistry Online test</p>
+	</footer>
+		</center>
+</body>
+</html>
+
