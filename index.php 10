@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Test</title>
+</head>
+<body>
+	<header style="text-align:center;">
+		<h1 style="color:blue;">Online Test</h1>
+		
+	</header>
+	<main>
+		<style>
+		legend {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: lightpink;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  background-color:lightcyan;
+}</style>
+		<form action="submit.php" method="post">
+			<fieldset>
+				<legend>Question 1 : What is the chemical formulae of water? </legend>
+				<label for="q1a"><input type="radio" id="q1a" name="q1" value="a">Option A : H20</label>
+				<label for="q1b"><input type="radio" id="q1b" name="q1" value="b">Option B : h30</label>
+				<label for="q1c"><input type="radio" id="q1c" name="q1" value="c">Option C : H40</label>
+			</fieldset>
+			<fieldset>
+				<legend>Question 2: What is the Chemical formulae for Ammonia?</legend>
+				<label for="q2a"><input type="radio" id="q2a" name="q2" value="a">NH4 </label>
+				<label for="q2b"><input type="radio" id="q2b" name="q2" value="b">NH3</label>
+				<label for="q2c"><input type="radio" id="q2c" name="q2" value="c">NH2 </label>
+			</fieldset>
+			<fieldset>
+				<legend>Question 3: What is the chemical formula for Hydrochloric?</legend>
+				<label for="q3a"><input type="radio" id="q3a" name="q3" value="a">HNO3</label>
+				<label for="q3b"><input type="radio" id="q3b" name="q3" value="b">Hcl</label>
+				<label for="q3c"><input type="radio" id="q3c" name="q3" value="c">HGl</label>
+			</fieldset><center>
+			<button type="submit" style="margin-top: 10px; background-color: green; color: white; border: none; padding: 10px 20px; border-radius: 5px;">Submit</button>
+		</form></center>
+	</main>
+	<footer style="text-align:center;">
+		<p>&copy; Chemistry Online Test</p>
+	</footer>
+</body>
+</html>
