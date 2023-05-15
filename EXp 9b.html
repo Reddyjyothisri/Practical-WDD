@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reading data from a JSON file using AJAX</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $.ajax({
+        url: "cars.json",
+        dataType: "json",
+        success: function(data) {
+          $.each(data, function(index, car) {
+            var carHtml = "<h2>Car " + (index+1) + "</h2><ul>" +
+              "<li>Make: " + car.make + "</li>" +
+              "<li>Model: " + car.model + "</li>" +
+              "<li>Year: " + car.year + "</li>" +
+              "<li>Color: " + car.color + "</li>" +
+              "<li>Mileage: " + car.mileage + "</li>" +
+              "<li>Features:</li><ul>";
+            $.each(car.features, function(index, value) {
+              carHtml += "<li>" + value + "</li>";
+            });
+            carHtml += "</ul></ul>";
+            $("#cars").append(carHtml);
+          });
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Car Information</h1>
+  <div id="cars"></div>
+</body>
+</html>
