@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function validateForm() {
+	
+	var name = document.getElementById("name").value;
+	var password = document.getElementById("password").value;
+	var email = document.getElementById("email").value;
+	var phone = document.getElementById("phone").value;
+	var education = document.getElementById("education").value;
+
+	
+	if (name == "") {
+		document.getElementById("messageBox").innerHTML = "Please enter your name.";
+		return false;
+	}
+
+	if (password == "") {
+		document.getElementById("messageBox").innerHTML = "Please enter your password.";
+		return false;
+	}
+
+	if (email == "") {
+		document.getElementById("messageBox").innerHTML = "Please enter your email.";
+		return false;
+	}
+
+	if (phone == "") {
+		document.getElementById("messageBox").innerHTML = "Please enter your phone number.";
+		return false;
+	}
+
+	if (education == "") {
+		document.getElementById("messageBox").innerHTML = "Please enter your education.";
+		return false;
+	}
+
+	
+	var phoneRegex = /^\d{10}$/;
+	if (!phoneRegex.test(phone)) {
+		document.getElementById("messageBox").innerHTML = "Please enter a valid 10-digit phone number.";
+		return false;
+	}
+
+	
+	var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	if (!emailRegex.test(email)) {
+		document.getElementById("messageBox").innerHTML = "Please enter a valid email address.";
+		return false;
+	}
+
+	
+	document.getElementById("messageBox").innerHTML = "Your registration is sucessfull";
+}
+
+        </script>
+    </head>
+        <body style="background-color:rosybrown">
+        <h1>Registration Form</h1>
+        <hr>
+	<form>
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name"><br><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password"><br><br>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+		<label for="phone">Phone Number:</label>
+		<input type="tel" id="phone" name="phone"><br><br>
+		<label for="education">Education:</label>
+		<input type="text" id="education" name="education"><br><br>
+		<input type="button" value="Submit" onclick="validateForm()">
+	</form>
+	<div id="messageBox"></div>
+        
+    </body>
+</html>
