@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        body{
+            background-color:cornflowerblue;
+        }
+        .error{
+            color: red;
+        }
+        div{
+            border:1px solid black;
+            margin-left: 30%;
+            margin-right: 30%;
+            margin-top: 20%;
+            height: 200px;
+            background-color:mediumspringgreen;
+        }
+        form{
+            padding-left: 30%;
+            padding-right: auto;
+            padding-top: 6%;
+            padding-bottom: 4%;
+            background-color: cornsilk;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div ng-app="">
+    <form action="https://www.javatpoint.com/" name="f1" method="post">
+        <table>
+            <tr>
+                <td colspan="5"> <h3>Login Form</h3></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="t1" id="" ng-model="name" minlength="3" maxlength="8" required></td>
+                <td class="error" ng-show="f1.t1.$touched && f1.t1.$invalid">this is required</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="t2" id="" ng-model="email" required></td>
+                <td class="error" ng-show="f1.t2.$touched && f1.t2.$invalid">this is required</td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="t3" id="" ng-model="password" minlength="6" required></td>
+                <td class="error" ng-show="f1.t3.$touched && f1.t3.$invalid">this is required</td>
+            </tr>
+            <tr>
+                <td><input type="Submit" value="Submit"></td>
+                <td><input type="Reset" value="Reset"></td>
+            </tr>
+        </table>
+    </form>
+    </div>
+
+</body>
+</html>
