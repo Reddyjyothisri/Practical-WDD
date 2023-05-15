@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reading data from a text file using AJAX</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $.ajax({
+        url: "data.txt",
+        dataType: "text",
+        success: function(data) {
+          $("#message").html(data);
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="message"></div>
+</body>
+</html>
